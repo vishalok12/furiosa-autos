@@ -1,12 +1,19 @@
 extends _shared
 
 block body
-	.reviews
-		h2 Customer reviews
+  form.navbar-form(role='search')
+    .input-group.add-on
+      input#srch-term.form-control(placeholder='Search', name='search', type='text')
+      .input-group-btn
+        button.btn.btn-default(type='submit')
+          | Search
 
-		//- Implement search here
+  .reviews
+    h2 Customer reviews
 
-		for review in reviews
-			blockquote
-				p= review.content
-				footer= review.source
+    //- Implement search here
+
+    for review in reviews
+      blockquote
+        p= review.content
+        footer= review.source

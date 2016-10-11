@@ -1,10 +1,19 @@
 extends _shared
 
 block body
-	.models
-		h2 Models we work on
+  div
+    div(style="display: inline-block; vertical-align:middle;padding-right: 10px;") Sort By
+    div(style="display: inline-block; vertical-align:middle;")
+      ul.nav.nav-tabs
+        li.sort-order(class=sortOrder === 'asc' ? 'active' : '')
+          a(href="?order=asc") A-Z
+        li.sort-order(class=sortOrder === 'desc' ? 'active' : '')
+          a(href="?order=desc") Z-A
 
-		//- Implement sorting here
+  .models
+    h2 Models we work on
 
-		for model in models
-			h4= model
+    //- Implement sorting here
+
+    for model in models
+      h4.model= model

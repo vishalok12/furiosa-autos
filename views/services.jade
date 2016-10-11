@@ -1,13 +1,19 @@
 extends _shared
 
 block body
-	.services
-		h2 Services we provide
+  .services
+    h2 Services we provide
 
-		//- Implement filtering here
+    //- Implement filtering here
+    .nav
+      ul.nav.nav-pills
+        for type in types
+          li(class=selectedType === type.toLowerCase() ? 'active' : '')
+            a(href='?type=' + type.toLowerCase())= type
 
-		for service in services
-			h4= service.job
-			p= service.cost
-			p= service.type
+    for service in services
+      div.service
+        h4= service.job
+        p.price-tag= service.cost
+        p.type-tag= service.type
 
